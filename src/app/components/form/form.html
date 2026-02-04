@@ -1,0 +1,55 @@
+<div class="flex justify-content-center align-items-center flex-wrap" style="min-height: 100vh;">
+    <p-card class="bg-green-50" [style]="{ width: '30rem', overflow: 'hidden' }">
+        <h2 class="text-center">welcome to chiikawa world</h2>
+        <div class="formgrid grid">
+            <div class="field col-12">
+                <label>firstname</label>
+                <input type="text" [formField]="form.firstname" pInputText class="w-full">
+                @if (form.firstname().touched() && form.firstname().invalid()) {
+                    <div class="error-list">
+                        @for (error of form.firstname().errors(); track error) {
+                            <p>{{ error.message }}</p>
+                        }
+                    </div>
+                }
+            </div>
+            <div class="field col-12">
+                <label>lastname</label>
+                <input type="text" [formField]="form.lastname" pInputText class="w-full">
+                @if (form.lastname().touched() && form.lastname().invalid()) {
+                    <div class="error-list">
+                        @for (error of form.lastname().errors(); track error) {
+                            <p>{{ error.message }}</p>
+                        }
+                    </div>
+                }
+            </div>
+            <div class="field col-12">
+                <label>email</label>
+                <input type="text" [formField]="form.email" pInputText class="w-full">
+                @if (form.email().touched() && form.email().invalid()) {
+                    <div class="error-list">
+                        @for (error of form.email().errors(); track error) {
+                            <p>{{ error.message }}</p>
+                        }
+                    </div>
+                }
+            </div>
+            <div class="field col-12">
+                <label>password</label>
+                <!-- <textarea type="text" rows="4" pInputTextarea class="w-full"></textarea> -->
+                <input type="text" [formField]="form.password" pInputText class="w-full">
+                @if (form.password().touched() && form.password().invalid()) {
+                    <div class="error-list">
+                        @for (error of form.password().errors(); track error) {
+                            <p>{{ error.message }}</p>
+                        }
+                    </div>
+                }
+            </div>
+            <div class="col-12 mt-2">
+                <p-button class="" [style]="{width: '100%'}" label="sign up" [loading]="loading()"></p-button>
+            </div>
+        </div>
+    </p-card>
+</div>
