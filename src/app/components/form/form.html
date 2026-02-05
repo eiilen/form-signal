@@ -48,7 +48,7 @@
                 }
             </div>
             <div class="col-12 mt-2">
-                <p-button (onClick)="onSubmit($event)" [disabled]="!form().valid()" [style]="{width: '100%'}" label="sign up" [loading]="loading()"></p-button>
+                <p-button (onClick)="onSubmit($event)" [disabled]="form().invalid()" [style]="{width: '100%'}" label="sign up" [loading]="loading()"></p-button>
             </div>
         </div>
     </p-card>
