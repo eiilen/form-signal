@@ -37,8 +37,8 @@
             </div>
             <div class="field col-12">
                 <label>password</label>
-                <!-- <textarea type="text" rows="4" pInputTextarea class="w-full"></textarea> -->
-                <input type="text" [formField]="form.password" pInputText class="w-full">
+                <!-- <p-password [formField]="form.password" [toggleMask]="true" [feedback]="false" autocomplete="off"></p-password> -->
+                <input type="password" [formField]="form.password" pInputText class="w-full">
                 @if (form.password().touched() && form.password().invalid()) {
                     <div class="error-list">
                         @for (error of form.password().errors(); track error) {
@@ -48,7 +48,7 @@
                 }
             </div>
             <div class="col-12 mt-2">
-                <p-button class="" [style]="{width: '100%'}" label="sign up" [loading]="loading()"></p-button>
+                <p-button (onClick)="onSubmit($event)" [style]="{width: '100%'}" label="sign up" [loading]="loading()"></p-button>
             </div>
         </div>
     </p-card>
