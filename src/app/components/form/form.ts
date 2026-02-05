@@ -50,6 +50,20 @@ export class Form {
     const credentials = this.formModel();
     console.log('Logging in with:', credentials);
     // e.g., await this.authService.login(credentials);
-    setTimeout(() => this.loading.set(false), 1000);
+    setTimeout(() => {
+      this.loading.set(false);
+      this.resetForm()
+    }, 1000);
+  }
+  resetForm() {
+    // Clear interaction state (touched, dirty)
+    this.form().reset();
+    // Clear values
+    this.formModel.set({
+      firstname: '',
+      lastname: '',
+      email: '',
+      password: ''
+    });
   }
 }
